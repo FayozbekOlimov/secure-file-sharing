@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Layout from "./components/Layout";
@@ -18,8 +18,9 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Banner />} />
-        <Route path="login" element={<Login />} />
+        {/* <Route index element={<Dashboard />} /> */}
+        <Route path="/" element={<Navigate to="/login" replace />} />
+        <Route index path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
 
         <Route element={<PersistLogin />}>

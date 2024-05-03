@@ -1,21 +1,21 @@
-import { useEffect, useMemo, useState } from 'react';
-import { PaletteMode, createTheme } from '@mui/material';
-import { themeSettings } from '../theme';
+import { useEffect, useMemo, useState } from "react";
+import { PaletteMode, createTheme } from "@mui/material";
+import { themeSettings } from "../theme";
 
 const useMode = () => {
-	const [mode, setMode] = useState<PaletteMode>('dark');
+  const [mode, setMode] = useState<PaletteMode>("dark");
 
-	const toggleColorMode = () => {
-		setMode((prev) => (prev === 'light' ? 'dark' : 'light'));
-	};
+  const toggleColorMode = () => {
+    setMode((prev) => (prev === "light" ? "dark" : "light"));
+  };
 
-	useEffect(() => {
-		localStorage.setItem('mode', mode);
-	}, [mode]);
+  useEffect(() => {
+    localStorage.setItem("mode", mode);
+  }, [mode]);
 
-	const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
+  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
 
-	return { theme, toggleColorMode };
+  return { theme, toggleColorMode };
 };
 
 export default useMode;
