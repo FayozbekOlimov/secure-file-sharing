@@ -12,12 +12,14 @@ import EditUser from "./pages/Users/EditUser";
 import { ROLES } from "./utils/constants";
 import NewUser from "./pages/Users/NewUser";
 import Profile from "./pages/Profile";
+import Banner from "./pages/Banner";
 
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route path="/" element={<Login />} />
+        <Route index element={<Banner />} />
+        <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
 
         <Route element={<PersistLogin />}>
